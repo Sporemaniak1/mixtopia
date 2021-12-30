@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - BgFar
+  - Ground
+  - Hittable
   - 
   - 
   - 
@@ -46,6 +47,12 @@ TagManager:
     locked: 0
   - name: Entity
     uniqueID: 3643144371
+    locked: 0
+  - name: Enemies
+    uniqueID: 1817707225
+    locked: 0
+  - name: Player
+    uniqueID: 666730815
     locked: 0
   - name: Fore
     uniqueID: 4251118557
