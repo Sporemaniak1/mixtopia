@@ -9,6 +9,7 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField]private float SpeedInAir;
     private Rigidbody2D RB;
     private Animator anim;
+    private Collider2D coll;
     private bool OnGround;
     public bool TouchingWall;
     public bool FacingRight;
@@ -20,6 +21,7 @@ public class PlayerMovment : MonoBehaviour
     public float WallSlideSpeed;
     public float wallCheckDistance;
     public LayerMask whatIsGround;
+    public int fires = 0;
     
 
     private void Awake()
@@ -129,4 +131,12 @@ public class PlayerMovment : MonoBehaviour
         Gizmos.DrawLine(WallCheck.position, new Vector3(WallCheck.position.x+wallCheckDistance,WallCheck.position.y,WallCheck.position.z));
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Collectable")
+        {
+            Destroy(collision.gameObject);
+            fires += 1;
+        }
+    }
 }
