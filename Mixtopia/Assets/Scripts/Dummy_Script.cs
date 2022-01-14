@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Dummy_Script : MonoBehaviour
 {
-    
-    [SerializeField] private float MaxHP;
-
-    public float currentHealth;
+    public Rigidbody2D RB;
+    public BoxCollider2D Colider;
+    [SerializeField] private int MaxHP;
+    public int currentHealth;
     public bool dying;
     private Animator anim;
 
@@ -21,12 +21,15 @@ public class Dummy_Script : MonoBehaviour
 
     private void Update()
     {
-        if (currentHealth < 0) { Dying(); }
+        if (currentHealth <= 0) { Dying(); }
+
+
+       
     }
 
-    private void Damage(float ammout) 
+   public void Damage(int ammout) 
     {
-        currentHealth -= ammout;
+        currentHealth -=ammout;
     }
 
     private void Dying() 
@@ -40,8 +43,11 @@ public class Dummy_Script : MonoBehaviour
     }
     private void Die() 
     {
+        
         anim.SetBool("Dead", true);
         anim.SetBool("Alive", false);
+        Colider.enabled = false;
+      
     }
 
 }
