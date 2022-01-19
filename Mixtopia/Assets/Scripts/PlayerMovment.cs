@@ -22,6 +22,7 @@ public class PlayerMovment : MonoBehaviour
     public float wallCheckDistance;
     public LayerMask whatIsGround;
     public int fires = 0;
+    public int waters = 0;
     
 
     private void Awake()
@@ -137,6 +138,11 @@ public class PlayerMovment : MonoBehaviour
         {
             Destroy(collision.gameObject);
             fires += 1;
+        }
+        if(collision.tag == "CollectableWater")
+        {
+            Destroy(collision.gameObject);
+            waters += 1;
         }
     }
 }
