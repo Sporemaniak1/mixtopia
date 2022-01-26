@@ -63,6 +63,7 @@ public class PlayerMovment : MonoBehaviour
        
 
         if (Input.GetKey(KeyCode.Space)){ Jump(); }
+        if (Input.GetKey(KeyCode.C)) { SuperJump(); }
         CheckIfCanJump();
         CheckIfCanWallSlide();
         CheckSurroundings();
@@ -95,8 +96,19 @@ public class PlayerMovment : MonoBehaviour
         }
     }
 
+    private void SuperJump()
+    {
+        bool NotDoneYet = true;
+        if (CanJump && waters>0)
+        {
+            RB.velocity = new Vector2(RB.velocity.x, speed*2 * 2.5f);
+            if (NotDoneYet)
+            { waters--;
+                NotDoneYet = false;
+            }
+        }
+    }
 
- 
     //stare wykrywanie ziemi
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
